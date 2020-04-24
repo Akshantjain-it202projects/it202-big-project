@@ -1,0 +1,78 @@
+body {height: 100vh;}
+
+main {display: block;}
+
+.first_screen {
+    height: 100vh;
+    display: block;
+    background: url("https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2978&q=80");
+    background-color: rgb(75, 75, 75);
+    background-blend-mode: hard-light;
+    filter: grayscale(30%);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.first_screen .heading {
+    font-size: 4rem;
+    margin-bottom: 0px;
+    color: white;
+}
+
+.line {
+    display: block;
+    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0));
+    height: 2px;
+    width: 45%;
+}
+
+.first_screen .first_page_description {
+    color: white;
+}
+
+.search_area {
+    background-color: rgba(255, 200, 255, 0.537);
+    border-radius: 5px;
+    /* border-top-right-radius: 5px; */
+}
+
+.mdc-tab-bar {
+    /* background-color: rgba(255, 200, 255, 0.537); */
+    /* border-radius: 5px; */
+    overflow: hidden;
+    /* padding-bottom: 1px; */
+}
+
+.mdc-tab-bar .mdc-tab__text-label   {
+    color: white;
+}
+
+.mdc-tab-indicator .mdc-tab-indicator__content--underline   {
+    border-color: white;
+}
+
+.india {
+    display: none;
+    opacity: 0;
+}
+
+.usa {
+    display: none;
+    opacity: 0;
+}
+
+.world {
+    display: none;
+    opacity: 0;
+}
+
+.location {
+    display: none;
+    opacity: 0;
+}
+
+.demo-width-class {
+    width: 100%;
+}
