@@ -5,6 +5,9 @@ const select2 = new mdc.select.MDCSelect(document.querySelector('.usa .mdc-selec
 
 const buttonRipple = new mdc.ripple.MDCRipple(document.querySelector('.mdc-button'));
 
+const menu = new mdc.menu.MDCMenu(document.querySelector('.mdc-menu'));
+menu.open = true;
+
 var first_screen = {
     name: "Search Bar",
     heading: "COVID-19 TRACKER",
@@ -24,6 +27,8 @@ var first_screen = {
         }
     ]
 }
+
+document.querySelector(".first_page_description").innerHTML = first_screen.description;
 
 let india_list;
 db.india_states.toArray().then((arr) => {

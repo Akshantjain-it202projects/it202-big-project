@@ -21,13 +21,19 @@
             <header class="mdc-top-app-bar">
                 <div class="mdc-top-app-bar__row">
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                        <button
-                            class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span
-                            class="mdc-top-app-bar__title">COVID-19 TRACKER</span> </section>
+                        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
+                        <span class="mdc-top-app-bar__title">COVID-19 TRACKER</span> </section>
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
                         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">info</button>
                         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">search</button>
-                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">map</button>
+                        
+                        <div id="demo-menu" class="mdc-menu-surface--anchor">
+                            <button
+                                class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">map</button>
+                            <div class="mdc-menu mdc-menu-surface">
+                                ...
+                            </div>
+                        </div>
                         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">my_location</button>
                     </section>
                 </div>
@@ -170,7 +176,7 @@
             <section class="about_screen px-5"></section>
 
             <section class="map_screen px-5"></section>
-            
+
             <section class="location_screen px-5"></section>
 
         </main>
