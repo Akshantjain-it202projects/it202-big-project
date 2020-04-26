@@ -1,8 +1,6 @@
 body {height: 100vh;}
 
-main {display: block;}
-
-.first_screen {
+main {
     height: 100vh;
     display: block;
     background: url("https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2978&q=80");
@@ -12,9 +10,20 @@ main {display: block;}
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
+    overflow: scroll;
 }
 
-.first_screen .heading {
+.search_screen {
+    display: block;
+    opacity: 1;
+}
+
+.about_screen, .map_screen, .location_screen, .india, .usa, .world, .location {
+    display: none;
+    opacity: 0;
+}
+
+.heading {
     font-size: 4rem;
     margin-bottom: 0px;
     color: white;
@@ -28,21 +37,17 @@ main {display: block;}
     width: 45%;
 }
 
-.first_screen .first_page_description {
+.description {
     color: white;
 }
 
 .search_area {
     background-color: rgba(255, 200, 255, 0.537);
     border-radius: 5px;
-    /* border-top-right-radius: 5px; */
 }
 
 .mdc-tab-bar {
-    /* background-color: rgba(255, 200, 255, 0.537); */
-    /* border-radius: 5px; */
     overflow: hidden;
-    /* padding-bottom: 1px; */
 }
 
 .mdc-tab-bar .mdc-tab__text-label   {
@@ -53,26 +58,14 @@ main {display: block;}
     border-color: white;
 }
 
-.india {
-    display: none;
-    opacity: 0;
-}
-
-.usa {
-    display: none;
-    opacity: 0;
-}
-
-.world {
-    display: none;
-    opacity: 0;
-}
-
-.location {
-    display: none;
-    opacity: 0;
-}
-
 .demo-width-class {
     width: 100%;
+}
+
+table {
+    table-layout: fixed;
+}
+
+table thead tr {
+    position: relative;
 }

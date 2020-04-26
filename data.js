@@ -1,11 +1,12 @@
-var db = new Dexie("COVID-19 Data");
+var database = new Dexie("Database");
 
 let india_fetched = false;
 let usa_fetched = false;
 
-db.version(1).stores({
+database.version(1).stores({
     india_states: "name, latitude, longitude, confirmed, active, deaths, recovered",
-    usa_states: "name, latitude, longitude, confirmed, deaths"
+    usa_states: "name, latitude, longitude, confirmed, deaths",
+    world: "name, latitude, longitude, confirmed, deaths, recovered"
 })
 
 fetch("https://covid19-data.p.rapidapi.com/india", 
@@ -18,10 +19,10 @@ fetch("https://covid19-data.p.rapidapi.com/india",
     })
     .then(response => response.json())
     .then(data => {
-        db.india_states.clear();
-        db.open().then(function () {
+        database.india_states.clear();
+        database.open().then(function () {
             for (let state of data) {
-                db.india_states.add({
+                database.india_states.add({
                     name: state.state,
                     latitude: state.latitude,
                     longitude: state.longitude,
@@ -32,8 +33,6 @@ fetch("https://covid19-data.p.rapidapi.com/india",
                 });
             }
         })
-
-        india_fetched = true;
     })
     .catch(err => {console.log(err);});
 
@@ -49,10 +48,10 @@ fetch("https://covid19-data.p.rapidapi.com/us",
     .then(response => response.json())
     .then(json => json.list)
     .then (data => {
-        // console.log(main_data);
-        db.usa_states.clear();
+        // console.log(data);
+        database.usa_states.clear();
         for (let state of data) {
-            db.usa_states.add({
+            database.usa_states.add({
                 name: state.state,
                 latitude: state.latitude,
                 longitude: state.longitude,
@@ -60,7 +59,33 @@ fetch("https://covid19-data.p.rapidapi.com/us",
                 deaths: state.deaths,
             })
         }
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
+fetch("https://covid19-data.p.rapidapi.com/all", 
+    {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "covid19-data.p.rapidapi.com",
+            "x-rapidapi-key": "83f25966e1msh579d26b19484f37p1594dejsn5e57a53531ec"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // console.log(data);
+        database.world.clear();
+        for (let country of data)   {
+            database.world.add({
+                name: country.country,
+                latitude: country.latitude, 
+                longitude: country.longitude, 
+                confirmed: country.confirmed, 
+                deaths: country.deaths, 
+                recovered: country.recovered
+            })
+        }
     })
     .catch(err => {
         console.log(err);

@@ -11,7 +11,8 @@
 
         <link rel="stylesheet" href="style.css">
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-        <script src="data.js"></script>
+        <script src="data.js" async></script>
+        
 
     </head>
 
@@ -24,28 +25,50 @@
                         <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
                         <span class="mdc-top-app-bar__title">COVID-19 TRACKER</span> </section>
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">info</button>
-                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">search</button>
+                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="about_press()">info</button>
+                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="search_press()">search</button>
                         
                         <div id="demo-menu" class="mdc-menu-surface--anchor">
-                            <button
-                                class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">map</button>
-                            <div class="mdc-menu mdc-menu-surface">
-                                ...
+                            <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="openMapMenu()">map</button>
+                            <div class="mdc-menu mdc-menu-surface" style="margin-top: 55px;">
+                                <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                                    <li class="mdc-list-item" role="menuitem" onclick="map_pressed('India')">
+                                        <span class="mdc-list-item__text">Map India</span>
+                                    </li>
+                                    <li class="mdc-list-item" role="menuitem" onclick="map_pressed('USA')">
+                                        <span class="mdc-list-item__text">Map USA</span>
+                                    </li>
+                                    <li class="mdc-list-item" role="menuitem" onclick="map_pressed('World')">
+                                        <span class="mdc-list-item__text">Map World</span>
+                                    </li>
+                                </ul>
                             </div>
+
                         </div>
-                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded">my_location</button>
+                        
+                        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="my_location()">my_location</button>
                     </section>
                 </div>
             </header>
 
-            <section class="first_screen px-5">
-                <div class="container-fluid h-100 mx-4">
-                    <div class="h-25"></div>
+            <section class="about_screen px-5">
+                <div class="container-fluid h-100 mx-4" style="overflow: scroll;">
+                    <div class="" style="height: 150px;"></div>
+                    <div>
+                        <p class="heading">About</p>
+                        <div class="line"></div>
+                        <p class="description"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="search_screen px-5">
+                <div class="container-fluid h-100 mx-4" style="overflow: scroll;">
+                    <div class="" style="height: 120px;"></div>
                     <div>
                         <p class="heading">COVID-19 TRACKER</p>
                         <div class="line"></div>
-                        <p class="first_page_description"></p>
+                        <p class="description"></p>
                         <div class="w-75 search_area h-100">
                             <div class="row w-100 mx-0">
                                 <div class="mdc-tab-bar" role="tablist">
@@ -100,7 +123,7 @@
 
                                 <div class="india w-100 my-2 mx-3" >
                                     <div class="w-100">
-                                        <button class="mdc-button mdc-button--raised w-100"> <span
+                                        <button class="mdc-button mdc-button--raised w-100" onclick="map_pressed('India')"> <span
                                                 class="mdc-button__ripple"></span> MAP INDIA</button>
                                     </div>
 
@@ -129,7 +152,7 @@
 
                                 <div class="usa w-100 my-2 mx-3">
                                     <div class="w-100">
-                                        <button class="mdc-button mdc-button--raised w-100"> <span
+                                        <button class="mdc-button mdc-button--raised w-100" onclick="map_pressed('USA')"> <span
                                                 class="mdc-button__ripple"></span> MAP USA</button>
                                     </div>
 
@@ -158,12 +181,13 @@
 
                                 <div class="world w-100 my-2 mx-3">
                                     <div class="w-100">
-                                        <button class="mdc-button mdc-button--raised w-100 my-2"> <span
+                                        <button class="mdc-button mdc-button--raised w-100 my-2" onclick="map_pressed('World')"> <span
                                                 class="mdc-button__ripple"></span> MAP WORLD</button>
                                         <button class="mdc-button mdc-button--raised w-100 my-2"> <span
                                                 class="mdc-button__ripple"></span> TABLE WORLD</button>
                                     </div>
                                 </div>
+
                                 <div class="location">
                                     <p>Location</p>
                                 </div>
@@ -172,8 +196,6 @@
                     </div>
                 </div>
             </section>
-
-            <section class="about_screen px-5"></section>
 
             <section class="map_screen px-5"></section>
 
@@ -193,6 +215,8 @@
             crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
             crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+
+        <script src="script.js" async></script>
+        <script src="extractions.js" async></script>
     </body>
 </html>
