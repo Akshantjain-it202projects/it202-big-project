@@ -19,15 +19,17 @@
         <script src="data.js" async defer></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
     </head>
 
     <body>
         <main>
-
             <header class="mdc-top-app-bar">
                 <div class="mdc-top-app-bar__row">
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
                         <span class="mdc-top-app-bar__title">COVID-19 TRACKER</span> </section>
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
                         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="about_press()">info</button>
@@ -160,10 +162,10 @@
                                             <thead>
                                                 <tr class="mdc-data-table__header-row">
                                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
-                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Confirmed</th>
-                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Active</th>
-                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Deaths</th>
-                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Recovered</th>
+                                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Confirmed</th>
+                                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Active</th>
+                                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Deaths</th>
+                                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Recovered</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="mdc-data-table__content india_stats">
@@ -210,11 +212,11 @@
                                         <table class="mdc-data-table__table" aria-label="COVID">
                                             <thead>
                                                 <tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Confirmed</th>
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Deaths</th>
+                                                <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Confirmed</th>
+                                                <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Deaths</th>
                                             </thead>
                                             <tbody class="mdc-data-table__content">
-                                                <tr class="mdc-data-table__row usa_stats">
+                                                <tr class="mdc-data-table__row">
                                                     <td class="mdc-data-table__cell" id="usa_state_name">State Name</td>
                                                     <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="usa_confirmed">0</td>
                                                     <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="usa_deaths">0</td>
@@ -234,7 +236,7 @@
                                     </div>
 
                                     <div class="mdc-data-table my-3"
-                                        style="float: center; overflow: scroll; height: auto; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        style="float: center; overflow: scroll; height: 1400px; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
                                         <table class="mdc-data-table__table" aria-label="COVID">
                                             <thead>
                                                 <tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
@@ -243,6 +245,7 @@
                                                 <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Recovered</th></tr>
                                             </thead>
                                             <tbody class="mdc-data-table__content world_stats">
+
                                             </tbody>
                                         </table>
                                     </div>

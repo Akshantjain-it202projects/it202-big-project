@@ -76,10 +76,24 @@ table thead tr {
     position: relative;
 }
 
+table tbody {
+    overflow: scroll;
+}
+
 .mdc-data-table__header-cell {
-    color: rgba(207, 207, 207, 0.87);
+    color: rgba(223, 223, 223, 0.87);
     font-weight: bold;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    border-bottom: 1px solid rgb(163, 163, 163);
+    text-transform: uppercase;
+}
+
+.mdc-data-table__header-cell:not(:last-child) {
+    border-right: 1px solid rgb(163, 163, 163);
+}
+
+.mdc-data-table__cell:not(:last-child) {
+    border-right: 1px dotted rgb(163, 163, 163);
 }
 
 .mdc-data-table__cell {

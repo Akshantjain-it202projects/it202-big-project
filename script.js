@@ -232,23 +232,28 @@ function table_pressed(params) {
 }
 
 function table_world() {
-    $(".world_stats").empty();
+
 }
 
 function table_usa() {
-    $(".usa_stats").empty();
     database.usa_states.where('name').equals(select2.value).toArray()
     .then((arr) => {
-        console.log(arr[0]);
-        
+        // console.log(arr[0]);
+        document.getElementById("usa_state_name").innerHTML = arr[0].name;
+        document.getElementById("usa_confirmed").innerHTML = arr[0].confirmed;
+        document.getElementById("usa_deaths").innerHTML = arr[0].deaths;
     })
 }
 
 function table_india() {
-    $(".india_stats").empty();
-    database.usa_states.where('name').equals(select2.value).toArray()
+    database.india_states.where('name').equals(select1.value).toArray()
     .then((arr) => {
-        console.log(arr[0]);
+        // console.log(arr[0]);
+        document.getElementById("india_state_name").innerHTML = arr[0].name;
+        document.getElementById("india_confirmed").innerHTML = arr[0].confirmed;
+        document.getElementById("india_active").innerHTML = arr[0].active;
+        document.getElementById("india_recovered").innerHTML = arr[0].recovered;
+        document.getElementById("india_deaths").innerHTML = arr[0].deaths;
     })
 }
 
