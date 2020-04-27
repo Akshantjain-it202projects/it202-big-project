@@ -24,8 +24,8 @@ fetch("https://covid19-data.p.rapidapi.com/india",
             for (let state of data) {
                 database.india_states.add({
                     name: state.state,
-                    latitude: state.latitude,
-                    longitude: state.longitude,
+                    // latitude: state.latitude,
+                    // longitude: state.longitude,
                     confirmed: state.confirmed,
                     active: state.active, 
                     deaths: state.deaths,
@@ -35,7 +35,6 @@ fetch("https://covid19-data.p.rapidapi.com/india",
         })
     })
     .catch(err => {console.log(err);});
-
 
 fetch("https://covid19-data.p.rapidapi.com/us", 
     {
@@ -53,8 +52,8 @@ fetch("https://covid19-data.p.rapidapi.com/us",
         for (let state of data) {
             database.usa_states.add({
                 name: state.state,
-                latitude: state.latitude,
-                longitude: state.longitude,
+                // latitude: state.latitude,
+                // longitude: state.longitude,
                 confirmed: state.confirmed,
                 deaths: state.deaths,
             })
@@ -79,8 +78,8 @@ fetch("https://covid19-data.p.rapidapi.com/all",
         for (let country of data)   {
             database.world.add({
                 name: country.country,
-                latitude: country.latitude, 
-                longitude: country.longitude, 
+                // latitude: country.latitude, 
+                // longitude: country.longitude, 
                 confirmed: country.confirmed, 
                 deaths: country.deaths, 
                 recovered: country.recovered

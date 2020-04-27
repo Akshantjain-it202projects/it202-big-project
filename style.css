@@ -18,7 +18,13 @@ main {
     opacity: 1;
 }
 
-.about_screen, .map_screen, .location_screen, .india, .usa, .world, .location {
+.about_screen,
+.chart_screen,
+.location_screen,
+.india,
+.usa,
+.world,
+.location {
     display: none;
     opacity: 0;
 }
@@ -68,4 +74,18 @@ table {
 
 table thead tr {
     position: relative;
+}
+
+.mdc-data-table__header-cell {
+    color: rgba(207, 207, 207, 0.87);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.mdc-data-table__cell {
+    color: white;
+}
+
+.mdc-data-table__row {
+    border-color: rgba(151, 151, 151, 0.726);
 }

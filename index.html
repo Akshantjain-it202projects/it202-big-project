@@ -3,6 +3,10 @@
     <head>
         <title>IT 202: Big Project</title>
 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Akshant Jain">
+
         <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
         <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -10,9 +14,10 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <link rel="stylesheet" href="style.css">
+
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-        <script src="data.js" async></script>
-        
+        <script src="data.js" async defer></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     </head>
 
@@ -29,17 +34,17 @@
                         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="search_press()">search</button>
                         
                         <div id="demo-menu" class="mdc-menu-surface--anchor">
-                            <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="openMapMenu()">map</button>
+                            <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="openMapMenu()">bar_chart</button>
                             <div class="mdc-menu mdc-menu-surface" style="margin-top: 55px;">
                                 <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
                                     <li class="mdc-list-item" role="menuitem" onclick="map_pressed('India')">
-                                        <span class="mdc-list-item__text">Map India</span>
+                                        <span class="mdc-list-item__text">Chart India</span>
                                     </li>
                                     <li class="mdc-list-item" role="menuitem" onclick="map_pressed('USA')">
-                                        <span class="mdc-list-item__text">Map USA</span>
+                                        <span class="mdc-list-item__text">Chart USA</span>
                                     </li>
                                     <li class="mdc-list-item" role="menuitem" onclick="map_pressed('World')">
-                                        <span class="mdc-list-item__text">Map World</span>
+                                        <span class="mdc-list-item__text">Chart World</span>
                                     </li>
                                 </ul>
                             </div>
@@ -55,7 +60,7 @@
                 <div class="container-fluid h-100 mx-4" style="overflow: scroll;">
                     <div class="" style="height: 150px;"></div>
                     <div>
-                        <p class="heading">About</p>
+                        <p class="heading text-uppercase">About</p>
                         <div class="line"></div>
                         <p class="description"></p>
                     </div>
@@ -63,10 +68,10 @@
             </section>
 
             <section class="search_screen px-5">
-                <div class="container-fluid h-100 mx-4" style="overflow: scroll;">
+                <div class="container-fluid mx-4" style="overflow: scroll; min-height: 100vh;">
                     <div class="" style="height: 120px;"></div>
                     <div>
-                        <p class="heading">COVID-19 TRACKER</p>
+                        <p class="heading text-uppercase">COVID-19 TRACKER</p>
                         <div class="line"></div>
                         <p class="description"></p>
                         <div class="w-75 search_area h-100">
@@ -124,7 +129,7 @@
                                 <div class="india w-100 my-2 mx-3" >
                                     <div class="w-100">
                                         <button class="mdc-button mdc-button--raised w-100" onclick="map_pressed('India')"> <span
-                                                class="mdc-button__ripple"></span> MAP INDIA</button>
+                                                class="mdc-button__ripple"></span> CHART INDIA</button>
                                     </div>
 
                                     <div class="py-3">
@@ -145,15 +150,37 @@
                                                     aria-selected="true"></li>
                                             </ul>
                                         </div>
-                                        <button class="mdc-button mdc-button--raised w-100 mt-1"> <span
-                                                class="mdc-button__ripple"></span> VIEW STATE</button>
+                                        <button class="mdc-button mdc-button--raised w-100 mt-1" onclick="table_pressed('india')"> <span
+                                                class="mdc-button__ripple"></span> VIEW STATE usa_states</button>
+                                    </div>
+
+                                    <div class="mdc-data-table my-3"
+                                        style="float: center; overflow: scroll; height: auto; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        <table class="mdc-data-table__table" aria-label="COVID">
+                                            <thead>
+                                                <tr class="mdc-data-table__header-row">
+                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
+                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Confirmed</th>
+                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Active</th>
+                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Deaths</th>
+                                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Recovered</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="mdc-data-table__content india_stats">
+                                                <td class="mdc-data-table__cell" id="india_state_name">State Name</td>
+                                                <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="india_confirmed">0</td>
+                                                <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="india_active">0</td>
+                                                <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="india_deaths">0</td>
+                                                <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="india_recovered">0</td>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
 
                                 <div class="usa w-100 my-2 mx-3">
                                     <div class="w-100">
                                         <button class="mdc-button mdc-button--raised w-100" onclick="map_pressed('USA')"> <span
-                                                class="mdc-button__ripple"></span> MAP USA</button>
+                                                class="mdc-button__ripple"></span> CHART USA</button>
                                     </div>
 
                                     <div class="py-3">
@@ -174,17 +201,50 @@
                                                     aria-selected="true"></li>
                                             </ul>
                                         </div>
-                                        <button class="mdc-button mdc-button--raised w-100 mt-1"> <span
-                                                class="mdc-button__ripple"></span> VIEW STATE</button>
+                                        <button class="mdc-button mdc-button--raised w-100 mt-1" onclick="table_pressed('USA')"> <span
+                                                class="mdc-button__ripple"></span> VIEW STATE STATS</button>
                                     </div>
+
+                                    <div class="mdc-data-table my-3"
+                                        style="float: center; overflow: scroll; height: auto; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        <table class="mdc-data-table__table" aria-label="COVID">
+                                            <thead>
+                                                <tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Confirmed</th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Deaths</th>
+                                            </thead>
+                                            <tbody class="mdc-data-table__content">
+                                                <tr class="mdc-data-table__row usa_stats">
+                                                    <td class="mdc-data-table__cell" id="usa_state_name">State Name</td>
+                                                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="usa_confirmed">0</td>
+                                                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric" id="usa_deaths">0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
 
                                 <div class="world w-100 my-2 mx-3">
                                     <div class="w-100">
                                         <button class="mdc-button mdc-button--raised w-100 my-2" onclick="map_pressed('World')"> <span
-                                                class="mdc-button__ripple"></span> MAP WORLD</button>
-                                        <button class="mdc-button mdc-button--raised w-100 my-2"> <span
+                                                class="mdc-button__ripple"></span> CHART WORLD</button>
+                                        <button class="mdc-button mdc-button--raised w-100 my-2" onclick="table_pressed('World')"> <span
                                                 class="mdc-button__ripple"></span> TABLE WORLD</button>
+                                    </div>
+
+                                    <div class="mdc-data-table my-3"
+                                        style="float: center; overflow: scroll; height: auto; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        <table class="mdc-data-table__table" aria-label="COVID">
+                                            <thead>
+                                                <tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Confirmed</th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Deaths</th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Recovered</th></tr>
+                                            </thead>
+                                            <tbody class="mdc-data-table__content world_stats">
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
 
@@ -197,9 +257,27 @@
                 </div>
             </section>
 
-            <section class="map_screen px-5"></section>
+            <section class="chart_screen px-5">
+                <div class="" style="height: 70px;"></div>
+                <div> 
+                    <p class="heading text-uppercase">chart</p>
+                    <div class="line"></div>
+                    
+                    <div id="barchart_material" style="width: 100%; height: 10000px; min-height: 500px; overflow: scroll;"></div>
+
+                    <div style="height: 40px;"></div>
+                </div>
+            </section>
 
             <section class="location_screen px-5"></section>
+
+            <div class="mdc-snackbar">
+                <div class="mdc-snackbar__surface">
+                    <div class="mdc-snackbar__label" role="status" aria-live="polite">
+            
+                    </div>
+                </div>
+            </div>
 
         </main>
 
