@@ -9,7 +9,18 @@ database.version(1).stores({
     world: "name, latitude, longitude, confirmed, deaths, recovered"
 })
 
-fetch("https://covid19-data.p.rapidapi.com/india", 
+if (navigator.onLine) {  
+    console.log("You are online");
+    fetch_data();
+}
+else {
+    database.open();
+    console.log("You are offline");
+    console.log(database);
+}
+
+function fetch_data() {
+    fetch("https://covid19-data.p.rapidapi.com/india", 
     {
         "method": "GET",
         "headers": {
@@ -37,7 +48,7 @@ fetch("https://covid19-data.p.rapidapi.com/india",
     })
     .catch(err => {console.log(err);});
 
-fetch("https://covid19-data.p.rapidapi.com/us", 
+    fetch("https://covid19-data.p.rapidapi.com/us", 
     {
         "method": "GET",
         "headers": {
@@ -64,7 +75,7 @@ fetch("https://covid19-data.p.rapidapi.com/us",
         console.log(err);
     });
 
-fetch("https://covid19-data.p.rapidapi.com/all", 
+    fetch("https://covid19-data.p.rapidapi.com/all", 
     {
         "method": "GET",
         "headers": {
@@ -89,7 +100,8 @@ fetch("https://covid19-data.p.rapidapi.com/all",
     })
     .catch(err => {
         console.log(err);
-    });
+    });  
+};
 
 google.charts.load('current', {'packages': ['bar']});
 google.charts.setOnLoadCallback(drawChart);
@@ -475,33 +487,34 @@ function my_location() {
 }
 
 
-// function showPosition(position) {
-//     console.log("Latitude: " + position.coords.latitude +
-//         "Longitude: " + position.coords.longitude);
-// }
+function showPosition(position) {
+    console.log("Latitude: " + position.coords.latitude +
+        "Longitude: " + position.coords.longitude);
+    document.querySelector(".location p").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+}
 
-// function showError(error) {
-//     switch (error.code) {
-//         case error.PERMISSION_DENIED:
-//             console.log("User denied the request for Geolocation.");
-//             break;
-//         case error.POSITION_UNAVAILABLE:
-//             console.log("Location information is unavailable.");
-//             break;
-//         case error.TIMEOUT:
-//             console.log("The request to get user location timed out.");
-//             break;
-//         case error.UNKNOWN_ERROR:
-//             console.log("An unknown error occurred.");
-//             break;
-//     }
-// }
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            console.log("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.log("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log("An unknown error occurred.");
+            break;
+    }
+}
 
-// if (navigator.geolocation) {
-//     console.log(navigator);
-//     console.log(navigator.geolocation);
-//     navigator.geolocation.getCurrentPosition(showPosition, showError);
-// } 
-// else {
-//     console.log("Geolocation is not supported by this browser.");
-// }
+if (navigator.geolocation) {
+    console.log(navigator);
+    console.log(navigator.geolocation);
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+} 
+else {
+    console.log("Geolocation is not supported by this browser.");
+}
