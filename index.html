@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>IT 202: Big Project</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="author" content="Akshant Jain">
+        <meta name="author" content="Akshant Jain"><meta name="theme-color" content="#317EFB"/>
+        <meta name="theme-color" content="#ffffff"/>
+        <meta name="Description" content="A COVID-19 Tracker Project">
 
         <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
-        <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js" async defer></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <link rel="stylesheet" href="style.css">
 
-        <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-        <script src="data.js" async defer></script>
+        <link rel="preconnect" href="https://www.gstatic.com">
+        
+        <script src="https://npmcdn.com/dexie/dist/dexie.min.js" defer></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
     </head>
 
     <body>
@@ -58,8 +61,8 @@
                 </div>
             </header>
 
-            <section class="about_screen px-5">
-                <div class="container-fluid h-100 mx-4" style="overflow: scroll;">
+            <section class="about_screen px-1">
+                <div class="container-fluid h-100" style="overflow: scroll;">
                     <div class="" style="height: 150px;"></div>
                     <div>
                         <p class="heading text-uppercase">About</p>
@@ -69,14 +72,14 @@
                 </div>
             </section>
 
-            <section class="search_screen px-5">
-                <div class="container-fluid mx-4" style="overflow: scroll; min-height: 100vh;">
+            <section class="search_screen px-1">
+                <div class="container-fluid" style="overflow: scroll; min-height: 100vh;">
                     <div class="" style="height: 120px;"></div>
                     <div>
                         <p class="heading text-uppercase">COVID-19 TRACKER</p>
                         <div class="line"></div>
                         <p class="description"></p>
-                        <div class="w-75 search_area h-100">
+                        <div class="w-100 search_area h-100">
                             <div class="row w-100 mx-0">
                                 <div class="mdc-tab-bar" role="tablist">
                                     <div class="mdc-tab-scroller">
@@ -157,7 +160,7 @@
                                     </div>
 
                                     <div class="mdc-data-table my-3"
-                                        style="float: center; overflow: scroll; height: auto; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        style="float: center; overflow: scroll; height: auto; width: auto; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
                                         <table class="mdc-data-table__table" aria-label="COVID">
                                             <thead>
                                                 <tr class="mdc-data-table__header-row">
@@ -208,7 +211,7 @@
                                     </div>
 
                                     <div class="mdc-data-table my-3"
-                                        style="float: center; overflow: scroll; height: auto; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        style="float: center; overflow: scroll; height: auto; width: auto; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
                                         <table class="mdc-data-table__table" aria-label="COVID">
                                             <thead>
                                                 <tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
@@ -236,7 +239,7 @@
                                     </div>
 
                                     <div class="mdc-data-table my-3"
-                                        style="float: center; overflow: scroll; height: 1400px; width: 100%; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
+                                        style="float: center; overflow: scroll; height: 1400px; width: auto; background-color: rgba(58, 58, 58, 0.609); color: white; border-radius: 10px; display: none; opacity: 0;">
                                         <table class="mdc-data-table__table" aria-label="COVID">
                                             <thead>
                                                 <tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell" role="columnheader" scope="col">State</th>
@@ -260,13 +263,13 @@
                 </div>
             </section>
 
-            <section class="chart_screen px-5">
+            <section class="chart_screen px-1">
                 <div class="" style="height: 70px;"></div>
                 <div> 
                     <p class="heading text-uppercase">chart</p>
                     <div class="line"></div>
                     
-                    <div id="barchart_material" style="width: 100%; height: 10000px; min-height: 500px; overflow: scroll;"></div>
+                    <div id="barchart_material" style="width: auto; height: fit-content; min-height:1000px; overflow: scroll;"></div>
 
                     <div style="height: 40px;"></div>
                 </div>
@@ -287,17 +290,29 @@
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous" ></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous" ></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous" ></script>
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous" ></script>
 
-        <script src="script.js" async></script>
-        <script src="extractions.js" async></script>
+        <script src="script.js" async defer></script>
+        <script src="sw.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                  // Registration was successful
+                  console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                  // registration failed :(
+                  console.log('ServiceWorker registration failed: ', err);
+                });
+              });
+            }
+        </script>
     </body>
 </html>
