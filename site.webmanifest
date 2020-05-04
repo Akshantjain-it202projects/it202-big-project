@@ -1,7 +1,7 @@
 {
     "name":"COVID-19 Tracker",
     "short_name":"Coronavirus",
-    "start_url": "./it202-big-project/",
+    "start_url": "./it202-big-project/index.html",
     "scope": "./",
     "description": "A simple tracker for covid-19 cases in Indian, USA states and Countries in the world",
     "icons":[
