@@ -1,17 +1,17 @@
 {
     "name":"COVID-19 Tracker",
     "short_name":"Coronavirus",
-    "start_url": "./it202-big-project/",
+    "start_url": "./",
     "scope": ".",
     "description": "A simple tracker for covid-19 cases in Indian, USA states and Countries in the world",
     "icons":[
         {
-            "src":"/favicon_io/android-chrome-192x192.png",
+            "src":"./favicon_io/android-chrome-192x192.png",
             "sizes":"192x192",
             "type":"image/png"
         },
         {
-            "src":"/favicon_io/android-chrome-512x512.png",
+            "src":"./favicon_io/android-chrome-512x512.png",
             "sizes":"512x512",
             "type":"image/png"
         }
