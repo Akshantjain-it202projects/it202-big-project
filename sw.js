@@ -19,11 +19,12 @@ const assets = [
     "https://fonts.googleapis.com/icon?family=Material+Icons&display=swap",
     "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
     "https://npmcdn.com/dexie/dist/dexie.min.js",
-    "./loader.js",
+//     "./loader.js",
     "https://code.jquery.com/jquery-3.4.1.slim.min.js",
     "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js",
     "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
     "https://code.jquery.com/jquery-3.5.0.min.js",
+    "https://www.gstatic.com/charts/loader.js",
 //     "https://www.gstatic.com"
 ];
 
