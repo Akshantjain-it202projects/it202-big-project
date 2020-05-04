@@ -409,7 +409,7 @@ function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Countries');
     
-    if (data_type == null)  {
+    if (typeof data_type == null)  {
         data_type = "india";
     }
 
