@@ -11,7 +11,8 @@ database.version(1).stores({
 
 if (navigator.onLine) {  
     console.log("You are online");
-    fetch_data();
+    database.open();
+    // fetch_data();
 }
 else {
     database.open();
@@ -20,6 +21,8 @@ else {
 }
 
 function fetch_data() {
+    console.log("Fetch Data");
+
     fetch("https://covid19-data.p.rapidapi.com/india", 
     {
         "method": "GET",
@@ -459,7 +462,6 @@ function drawChart() {
         }
         data.addRows(wholeRowData);
     }
-    
 
     var options = {
         chart: {
