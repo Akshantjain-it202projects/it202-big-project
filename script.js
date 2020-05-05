@@ -73,32 +73,6 @@ function fetch_data() {
         console.log(err);
     });
 
-//     fetch("https://covid19-data.p.rapidapi.com/all", 
-//     {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "covid19-data.p.rapidapi.com",
-//             "x-rapidapi-key": "83f25966e1msh579d26b19484f37p1594dejsn5e57a53531ec"
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         // console.log(data);
-//         database.world.clear();
-//         for (let country of data)   {
-//             database.world.add({
-//                 name: country.country,
-//                 // latitude: country.latitude, 
-//                 // longitude: country.longitude, 
-//                 confirmed: country.confirmed, 
-//                 deaths: country.deaths, 
-//                 recovered: country.recovered
-//             })
-//         }
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });  
 };
 
 google.charts.load('current', {'packages': ['bar']});
@@ -163,10 +137,6 @@ document.querySelector(".search_screen .description").innerHTML = info[1].search
 let india_list;
 database.india_states.toArray().then((arr) => {
     india_list = arr;
-    
-    if (india_list.length == 0) {
-        fetch_data();
-    }
 });
 
 let usa_list;
@@ -492,7 +462,22 @@ function my_location() {
 }
 
 
+function fetch_location(position) {
+    const url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyDyJVTZadyzK1rowkTB9cV0kH-S32ukEOA";
+    console.log(url);
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {console.log(err);});
+}
+
+
 function showPosition(position) {
+   
+    fetch_location(position);
+    
     console.log("Latitude: " + position.coords.latitude +
         "Longitude: " + position.coords.longitude);
     document.querySelector(".location p").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
