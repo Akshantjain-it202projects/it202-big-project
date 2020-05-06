@@ -452,8 +452,8 @@ function fetch_location(position) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        country = data.results[7].formatted_address;
         address = data.results[0].formatted_address;
+        country = data.results[7].formatted_address;
         let additional;
         if (country == "India") {
             additional = "Check out the Indian States Stats for current COVID-19 Cases in your state or check the world stats for Whole Country stat."
