@@ -446,12 +446,12 @@ let address;
 let country;
 
 function fetch_location(position) {
-    const url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyAam4n5yVyQzTroU9rLnbTSSHoUsw4b1k4";
+    const url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyCsb1qMj2FfG-GKztLHvABzjTqWhKm-N3Y";
 //     console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(data => {
-//         console.log(data);
+        console.log(data);
         country = data.results[7].formatted_address;
         address = data.results[0].formatted_address;
         let additional;
