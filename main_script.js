@@ -487,12 +487,12 @@ function fetch_location(position) {
         address = data.results[0].formatted_address;
         country = data.results[7].formatted_address;
         let additional;
-        if (country == "India") {
+        if (country.includes("India")) {
             additional = "Check out the Indian States Stats for current COVID-19 Cases in your state or check the world stats for Whole Country stat."
         }else {
             additional = "Check out your country in the world tab for full covid-19 cases in your country."
         }
-        document.querySelector(".location p").innerHTML = "<u><b>Location</u>: Retrieved</b> <br> <br><u><b>Address</b></u>: " + address + "<br><u><b>Country</b></u>: " + country + "<br><br>" + additional;
+        document.querySelector(".location p").innerHTML = "<u><b>Location</u>: Retrieved</b> <br> <br><u><b>Address</b></u>: " + address + "<br><u><b>Region</b></u>: " + country + "<br><br>" + additional;
         
     })
     .catch(err => {console.log(err);});
