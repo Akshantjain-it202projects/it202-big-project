@@ -79,9 +79,9 @@ function fetch_data() {
             for (let state of data) {
                 database.india_states.add({
                     name: state.name,
-                    confirmed: parseInt(state.cases),
-                    deaths: parseInt(state.deaths),
-                    recovered: parseInt(state.recovered)
+                    confirmed: parseInt((state.cases).replace(',','')),
+                    deaths: parseInt((state.deaths).replace(',','')),
+                    recovered: parseInt((state.recovered).replace(',',''))
                 });
             }
         })
@@ -104,9 +104,9 @@ function fetch_data() {
             for (let country of data.countries_stat) {
                 database.world.add({
                     name: country.country_name,
-                    confirmed: parseInt(country.cases),
-                    deaths: parseInt(country.deaths),
-                    recovered: parseInt(country.total_recovered)
+                    confirmed: parseInt((country.cases).replace(',','')),
+                    deaths: parseInt((country.deaths).replace(',','')),
+                    recovered: parseInt((country.total_recovered).replace(',',''))
                 })
             }
         })
@@ -161,8 +161,6 @@ else {
     
     document.querySelector(".location p").innerHTML = "Location not available in offline mode!!"
 }
-
-console.log("Inside new");
 
 var india_tab = document.querySelector(".india");
 var world_tab = document.querySelector(".world");
@@ -296,7 +294,6 @@ function table_pressed(params) {
 
     if (params == "World") {
         table_world();
-
         document.querySelector(".world .mdc-data-table").style.display = 'block';
         $(".world .mdc-data-table").animate({opacity: '1'}, tab_timeout);
     }
@@ -314,7 +311,42 @@ function table_pressed(params) {
 }
 
 function table_world() {
-
+    let contents = document.querySelector(".world_stats");
+//     console.log(world_list);
+//     let number;
+    for (let country of world_list) {
+        let row = document.createElement("tr");
+        row.classList.add("mdc-data-table__row");
+        
+        let countryName = document.createElement("td");
+        countryName.classList.add("mdc-data-table__cell");
+        countryName.innerHTML = country.name;
+        
+        let confirmed = document.createElement("td");
+        confirmed.classList.add("mdc-data-table__cell");
+        confirmed.classList.add("mdc-data-table__cell--numeric");
+        confirmed.innerHTML = country.confirmed;
+        
+        let deaths = document.createElement("td");
+        deaths.classList.add("mdc-data-table__cell");
+        deaths.classList.add("mdc-data-table__cell--numeric");
+        deaths.innerHTML = country.deaths;
+        
+        let recovered = document.createElement("td");
+        recovered.classList.add("mdc-data-table__cell");
+        recovered.classList.add("mdc-data-table__cell--numeric");
+        recovered.innerHTML = country.recovered;
+        
+        row.appendChild(countryName);
+        row.appendChild(confirmed);
+        row.appendChild(deaths);
+        row.appendChild(recovered);
+        
+        contents.appendChild(row);
+//         console.log(country);
+//         number = number + 1;
+    }
+//     console.log(number);
 }
 
 function table_india() {
@@ -465,7 +497,6 @@ function fetch_location(position) {
     })
     .catch(err => {console.log(err);});
 }
-
 
 function showPosition(position) {
    
